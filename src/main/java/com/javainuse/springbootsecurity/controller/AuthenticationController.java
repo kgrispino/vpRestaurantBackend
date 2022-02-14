@@ -41,6 +41,10 @@ public class AuthenticationController {
 	@Autowired
 	private JwtUtil jwtUtil;
 
+	/*
+	Create JWT token based on username and password
+	@params payload with username and password
+	 */
 	@PostMapping("/accounts/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
 			throws Exception {
@@ -57,7 +61,6 @@ public class AuthenticationController {
 		String token = jwtUtil.generateToken(userdetails);
 		return ResponseEntity.ok(new AuthenticationResponse(token));
 	}
-	//Make function to get token and validate using JwtUtil validateToken
 
 	//Was register
 	//Make it so everyone is a user
@@ -67,17 +70,23 @@ public class AuthenticationController {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
 
+	//Check if account name is available
+	//@params user payload
 	@PostMapping("/accounts/avail")
 	public boolean checkAvailability(@RequestBody UserDTO user){
 		return userDetailsService.AccountExists(user.getUsername());
 	}
-
+	/*
+    Get list of accounts
+    */
 	@GetMapping("/accounts")
 	public List<DAOUser> getAccounts(){
 		return userDetailsService.getAccounts();
 	}
 
 
+	//Validate JWT token
+	//@params request: username and token payload
 	@PostMapping("/accounts/validate")
 	public boolean validateAccount(@RequestBody ValidationRequest request){
 		if (jwtUtil.validateToken(request.getToken())){

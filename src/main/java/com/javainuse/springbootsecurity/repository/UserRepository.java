@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.javainuse.springbootsecurity.model.DAOUser;
 
-
+/**
+ * Repo for H2 Users(encoded passwords) table
+ */
 @Repository
 public interface UserRepository extends JpaRepository<DAOUser, Long> {
 	DAOUser findByUsername(String username);

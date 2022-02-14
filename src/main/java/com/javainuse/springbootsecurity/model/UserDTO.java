@@ -7,6 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+/*
+ * Class for receiving account info in payload
+ */
 public class UserDTO {
 	private String username;
 	private String password;

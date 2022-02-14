@@ -6,6 +6,9 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @Builder
+/*
+ * Class for receiving username and password in payload
+ */
 public class AuthenticationRequest {
 	private String username;
 	private String password;

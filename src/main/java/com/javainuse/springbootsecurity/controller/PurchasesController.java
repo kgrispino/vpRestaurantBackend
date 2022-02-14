@@ -15,6 +15,9 @@ import java.util.Objects;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/*
+ * Class for exposing Purchase API
+ */
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
@@ -29,6 +32,12 @@ public class PurchasesController {
 
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+    /*
+    Save Purchase to Purchase db
+    @param data: timestamp of purchase generated on backend
+    @param username: user who put in order
+    @param cart: string of what user ordered
+    */
     public Purchases savePurchase(Date date, String username, String cart){
         Purchases newPurchase = new Purchases();
         newPurchase.setUsername(username);
@@ -37,6 +46,10 @@ public class PurchasesController {
         return purchasesRepo.save(newPurchase);
     }
 
+    /*
+    Validate the token of the user who put in order and save order in db
+    @param request: payload holding cart and token
+     */
     @PostMapping("/purchase/sendCart")
     public boolean validateCart(@RequestBody CartValidation request){
         log.info("Sent");

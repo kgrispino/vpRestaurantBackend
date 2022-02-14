@@ -3,6 +3,7 @@ package com.javainuse.springbootsecurity.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+//Test controller
 @RestController
 public class ResourceController {
 	

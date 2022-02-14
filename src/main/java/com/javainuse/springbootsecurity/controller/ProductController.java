@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/*
+ * Class for exposing Product API
+ */
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
@@ -17,6 +20,9 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
+    /*
+    Get list of products
+    */
     @GetMapping("/products")
     public List<Product> getProducts(){
         return productRepository.findAll();

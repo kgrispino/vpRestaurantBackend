@@ -10,7 +10,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
+/*
+	The attributes for user table:
+	Primary key: id
+	Username
+	Password (encoded)
+	role
+ */
 @Entity
 @Table(name = "user")
 public class DAOUser {

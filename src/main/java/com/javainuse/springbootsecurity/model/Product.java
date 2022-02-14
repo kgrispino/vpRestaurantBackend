@@ -12,6 +12,16 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Builder
 
+/*
+	The attributes for product table:
+	Primary key: name
+	price
+	desc
+	calories
+ */
+
+//Post note would be better to make an id number the primary key and make instead of name
+//in case of product name change
 @Entity
 @Table(name = "products")
 public class Product {

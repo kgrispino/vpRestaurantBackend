@@ -14,6 +14,22 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
+/*
+	The attributes for Purchases table:
+	Primary key: order_id
+	Username
+	cart(string of all items in cart
+	date(timestamp)
+
+
+Post note: A better approach would be to make another table for contents of cart
+    Table: cart
+    Primary key: order_id
+    Product_id
+    Quantity
+    Product cost
+And this cart table could be joined with this purchase table to get date and user who ordered
+*/
 @Entity
 @Table(name = "purchases")
 public class Purchases {

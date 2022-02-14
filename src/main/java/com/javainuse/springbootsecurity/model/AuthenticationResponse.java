@@ -10,6 +10,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/*
+ * Class for receiving token in payload
+ */
 public class AuthenticationResponse {
 	private String token;
 
